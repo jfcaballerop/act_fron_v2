@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import logo from '../assets/logo.svg';
 import './App.scss';
 import Login from "./Login";
-import Routes from "../routes";
 
 class App extends Component {
   constructor(props) {

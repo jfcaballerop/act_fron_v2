@@ -12,6 +12,8 @@ export default class Login extends Component {
 
     this.state = {
       isAuthenticated: false,
+      password: "",
+      login: "",
       password: ""
     };
   }
@@ -55,6 +57,8 @@ export default class Login extends Component {
         });
         console.log('LOGIN OK')
         alert("Logged in");
+        this.props.history.push("/home");
+
 
       } else {
         this.setState({
