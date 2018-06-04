@@ -1,9 +1,15 @@
+// Imports
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from "react-router-dom";
+
+// Assets
 import logo from '../assets/logo.svg';
 import './App.scss';
+
+//Components
 import Login from "./Login";
+
 
 class App extends Component {
   constructor(props) {
