@@ -1,5 +1,7 @@
 import React from 'react';
 import { Gmaps } from 'react-gmaps';
+import { withGoogleMap, GoogleMap } from 'react-google-maps';
+
 import { Row, Col, ProgressBar } from 'react-bootstrap'
 import './Maps.scss';
 
@@ -43,16 +45,29 @@ class Maps extends React.Component {
 
 
   render() {
+    const GoogleMapExample = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter={{ lat: 40.756795, lng: -73.954298 }}
+        defaultZoom={13}
+      >
+      </GoogleMap>
+    ));
     return (
-      <Gmaps className="gmaps"
-        width={'800px'}
-        height={'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={6}
-        params={params}
-        onMapCreated={this.onMapCreated}>
-      </Gmaps>
+      // <Gmaps className="gmaps"
+      //   width={'800px'}
+      //   height={'600px'}
+      //   lat={coords.lat}
+      //   lng={coords.lng}
+      //   zoom={6}
+      //   params={params}
+      //   onMapCreated={this.onMapCreated}>
+      // </Gmaps>
+
+      <GoogleMapExample
+        className="map"
+        containerElement={<div style={{ height: `100vh`, width: '85vw' }} />}
+        mapElement={<div style={{ height: `100%`, width: '100%' }} />}
+      />
     )
   }
 }

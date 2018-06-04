@@ -26,6 +26,8 @@ export default class Template extends Component {
                         <div className="sidebar-header">
                             <h3>Bootstrap Sidebar</h3>
                             <strong>BS</strong>
+                            <ButtonToggle toggleMenu={this.toggleSidenav} />
+
                         </div>
 
                         <ul className="list-unstyled components">
