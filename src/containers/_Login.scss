@@ -1,0 +1,88 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+.parent{
+	transform: translateY(100%);
+	.form_login {
+		background: $secondary-color-light4;
+		margin-top: 40px;
+		text-align: center;
+		width: 20%;
+		border: 1px solid black;
+		border-radius: 15px;
+		padding:20px;
+	    position: relative;
+	    top: 50%;
+	    left:50%;
+	    transform: translate(-50%,-50%);
+	    text-align: center;
+	    *{
+			text-align: center;
+		}
+	}
+
+	.error-span{
+		color:red;
+	}
+
+	.logo-ines{
+		width: 15%;
+		margin: auto;
+	}
+
+	.form-login-footer {
+	    border-top: 1px solid $secondary-color;
+	    margin: 30px  -20px -20px -20px;
+	    position: relative;
+	    font-size: 12px;
+	    padding: 5px 5px 5px 40px;
+	    border-radius: 0 0 20px 20px;
+	    background: $secondary-color-light6;
+	    display: flex;
+	}
+}
+
+.logo{
+	width: 10%;
+	display: block;
+	margin: 0 auto;
+	transform: scale(2.5) translateY(50px);
+}
+
+.input-login:focus:not([readonly]){
+	border-bottom: 1px solid $primary-color;
+    box-shadow: 0 1px 0 0 $primary-color;
+}
+
+.form_login label{
+	color:#000;
+	font-weight: 900;
+	font-size: 100%;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+
+
+.login-button{
+	background:$primary-color;
+	border-color: $primary-color-light4;
+	&:active,
+	&:focus,
+	&:disabled,
+	&:hover{
+		background: $primary-color-light1;
+		border-color: $primary-color-dark;
+
+	}
+
+}
+
+
