@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./App.scss";
 
+//Components
+import ContainerMain from '../components/ContainerMain'
+import Maps from '../components/Maps'
+
+
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -17,10 +23,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
-        <h1>Home</h1>
 
-      </div>
+      <ContainerMain mapa={<Maps />} />
+
+
     );
   }
 }
