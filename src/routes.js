@@ -8,6 +8,7 @@ import Template from './containers/Template'
 import Home from './containers/Home'
 import ActuacionesConsOrd from './containers/ActuacionesConsOrd'
 import Administracion from './containers/Administracion'
+import NotFound from "./containers/NotFound";
 
 // import Home from './components/Home'
 // import AdminUser from './components/AdminUser'
@@ -26,6 +27,8 @@ const AppRoutes = () =>
             <Route path="/home" exact component={Home} />
             <Route path="/actuacionesconsord" exact component={ActuacionesConsOrd} />
             <Route path="/administracion" exact component={Administracion} />
+            <Route component={NotFound} />
+
         </Template>
 
     </Switch>
