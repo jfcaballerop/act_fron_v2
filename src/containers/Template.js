@@ -38,7 +38,7 @@ export default class Template extends Component {
                         </div>
 
                         <ul className="list-unstyled components">
-                            <li className="active">
+                            <li>
                                 <a href="#homeSubmenu" >
                                     <i className="glyphicon glyphicon-home"></i>
                                     Home
