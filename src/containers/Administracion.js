@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Administracion.scss";
+import "./App.scss";
 
 export default class Administracion extends Component {
     constructor(props) {
