@@ -3,7 +3,7 @@ import { Gmaps } from 'react-gmaps';
 import { withGoogleMap, GoogleMap } from 'react-google-maps';
 
 import { Row, Col, ProgressBar } from 'react-bootstrap'
-import './Maps.scss';
+import '../../containers/App.scss';
 
 const coords = {
   lat: 40.0000000,

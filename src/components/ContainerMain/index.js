@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import './containermain.scss';
+import '../../containers/App.scss';
 
 class ContainerMain extends React.Component {
 
