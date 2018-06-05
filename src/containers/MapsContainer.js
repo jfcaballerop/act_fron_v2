@@ -17,8 +17,7 @@ export class MapsContainer extends Component {
     }
     render() {
         const style = {
-            width: '100vw',
-            height: '100vh'
+
         }
         // if (!this.props.loaded) return <div>Loading...</div>;
 

@@ -42,7 +42,7 @@ export default class Template extends Component {
 
                         <ul className="list-unstyled components">
 
-                            <li className="active">
+                            <li>
                                 <Link to="/home"><i className="glyphicon glyphicon-home"></i>Home</Link>
 
                             </li>
