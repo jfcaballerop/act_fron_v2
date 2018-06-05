@@ -43,7 +43,7 @@ export default class Template extends Component {
                         <ul className="list-unstyled components">
 
                             <li>
-                                <Link to="/home"><i className="glyphicon glyphicon-home"></i>Home</Link>
+                                <Link to="/home"><i className="glyphicon glyphicon-home"></i>Inicio</Link>
 
                             </li>
                             <li>
@@ -51,16 +51,8 @@ export default class Template extends Component {
 
                             </li>
                             <li>
-                                <a href="#AdminPageSub" data-toggle="collapse" aria-expanded="false">
-                                    <i className="  glyphicon glyphicon-cog"></i>
-                                    Administración
-                        </a>
-                                <ul className="collapse list-unstyled" id="AdminPageSub">
-                                    <li><a href="#">Usuarios</a></li>
-                                    <li><a href="#">Grupos</a></li>
-                                    <li><a href="#">Roles</a></li>
-                                    <li><a href="#">Cebes</a></li>
-                                </ul>
+                                <Link to="/administracion"><i className="glyphicon glyphicon-cog"></i>Administracion</Link>
+
                             </li>
                             <li>
                                 <a href="#">
