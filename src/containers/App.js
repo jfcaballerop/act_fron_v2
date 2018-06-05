@@ -8,6 +8,7 @@ import logo from '../assets/logo.svg';
 import './App.scss';
 
 //Components
+import AppRoutes from '../routes'
 import Login from "./Login";
 
 
@@ -31,7 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         {children}
-
+        <AppRoutes />
       </div>
 
     );

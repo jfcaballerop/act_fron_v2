@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 
 // Components
-import App from './containers/App';
 import Login from './containers/Login'
 import Template from './containers/Template'
 import Home from './containers/Home'
@@ -21,18 +20,15 @@ import Administracion from './containers/Administracion'
 
 const AppRoutes = () =>
 
-    <App>
-        <Switch>
-            <Route path="/" exact component={Login} />
-            <Template>
-                <Route path="/home" exact component={Home} />
-                <Route path="/actuacionesconsord" exact component={ActuacionesConsOrd} />
-                <Route path="/administracion" exact component={Administracion} />
-            </Template>
+    <Switch>
+        <Route path="/" exact component={Login} />
+        <Template>
+            <Route path="/home" exact component={Home} />
+            <Route path="/actuacionesconsord" exact component={ActuacionesConsOrd} />
+            <Route path="/administracion" exact component={Administracion} />
+        </Template>
 
-        </Switch>
-
-    </App>;
+    </Switch>
 
 export default AppRoutes;
 

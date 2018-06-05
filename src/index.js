@@ -5,14 +5,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 
 // Routes
-import AppRoutes from './routes'
+import App from "./containers/App";
 
 import registerServiceWorker from './registerServiceWorker';
 
 
 ReactDOM.render(
 	<Router>
-		<AppRoutes />
+		<App />
 	</Router>,
 	document.getElementById('root')
 );

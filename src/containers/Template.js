@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel, Glyphicon } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+// Assets
 import "./App.scss";
 import logoMenu from "../assets/images/logo_header.png"
 
@@ -27,40 +30,32 @@ export default class Template extends Component {
                     {/* <!-- Sidebar Holder --> */}
                     <nav id="sidebar" className={this.state.showSidenav ? 'active' : null}>
                         <div className="sidebar-header">
-                            {this.state.showSidenav ? 
-                            <Glyphicon glyph="align-justify" className="burger-menu" onClick={this.toggleSidenav}/>
-                            : 
-                            <div className="logo-area-template">
-                                <img src={logoMenu} alt="logo" className="logo-navbar" />
-                                <Glyphicon glyph="glyphicon glyphicon-chevron-left" className="arrow-template" onClick={this.toggleSidenav} />
-                            </div>
+                            {this.state.showSidenav ?
+                                <Glyphicon glyph="align-justify" className="burger-menu" onClick={this.toggleSidenav} />
+                                :
+                                <div className="logo-area-template">
+                                    <img src={logoMenu} alt="logo" className="logo-navbar" />
+                                    <Glyphicon glyph="glyphicon glyphicon-chevron-left" className="arrow-template" onClick={this.toggleSidenav} />
+                                </div>
                             }
                         </div>
 
                         <ul className="list-unstyled components">
+
                             <li className="active">
-                                <a href="#homeSubmenu" >
-                                    <i className="glyphicon glyphicon-home"></i>
-                                    Home
-                        </a>
+                                <Link to="/home"><i className="glyphicon glyphicon-home"></i>Home</Link>
+
                             </li>
                             <li>
-                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                                    <i className="glyphicon glyphicon-duplicate"></i>
-                                    Actuaciones
-                        </a>
-                                <ul className="collapse list-unstyled" id="pageSubmenu">
-                                    <li><a href="#">Obras</a></li>
-                                    <li><a href="#">Actuaciones Ordinarias</a></li>
-                                    <li><a href="#">Actuaciones Extraordinarias</a></li>
-                                </ul>
+                                <Link to="/actuacionesconsord"><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</Link>
+
                             </li>
                             <li>
                                 <a href="#AdminPageSub" data-toggle="collapse" aria-expanded="false">
                                     <i className="  glyphicon glyphicon-cog"></i>
                                     Administración
                         </a>
-                                 <ul className="collapse list-unstyled" id="AdminPageSub">
+                                <ul className="collapse list-unstyled" id="AdminPageSub">
                                     <li><a href="#">Usuarios</a></li>
                                     <li><a href="#">Grupos</a></li>
                                     <li><a href="#">Roles</a></li>
@@ -73,7 +68,7 @@ export default class Template extends Component {
                                     Logout
                         </a>
                             </li>
-                        </ul> 
+                        </ul>
                     </nav>
 
                     {/* <!-- Page Content Holder --> */}
