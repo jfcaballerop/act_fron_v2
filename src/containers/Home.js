@@ -4,7 +4,8 @@ import "./App.scss";
 
 //Components
 import ContainerMain from '../components/ContainerMain'
-import Maps from '../components/Maps'
+import MapsContainer from '../containers/MapsContainer'
+import Maps from '../components/Map'
 
 
 
@@ -24,8 +25,8 @@ export default class Home extends Component {
   render() {
     return (
 
-      <ContainerMain mapa={<Maps />} />
-
+      // <ContainerMain mapa={<Maps />} />
+      <MapsContainer />
 
     );
   }
