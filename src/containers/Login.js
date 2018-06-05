@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Login.scss";
+import "./App.scss";
 import ROUTESNAME from '../services/routesName.js'
 import jwtDecode from 'jwt-decode'
 import axios from 'axios';
+import Logo from '../assets/images/logo_header.png'
+import LogoInes from '../assets/images/logo_i3met.png'
 
 
 export default class Login extends Component {
@@ -81,34 +83,46 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="login" bsSize="large">
-            <ControlLabel>login</ControlLabel>
-            <FormControl
-              autoFocus
-              type="login"
-              value={this.state.login}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>password</ControlLabel>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-            />
-          </FormGroup>
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
-            Entrar
-          </Button>
-        </form>
+      <div>
+        <img src={Logo} className="logo" alt="logo" />
+        <div className="parent">
+          <form onSubmit={this.handleSubmit} className="form_login">
+            <FormGroup controlId="login" bsSize="large">
+              <ControlLabel>login</ControlLabel>
+              <FormControl
+                className="input-login"
+                autoFocus
+                type="login"
+                value={this.state.login}
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <FormGroup controlId="password" bsSize="large">
+              <ControlLabel>password</ControlLabel>
+              <FormControl
+                className="input-login"
+                value={this.state.password}
+                onChange={this.handleChange}
+                type="password"
+              />
+            </FormGroup>
+            <Button
+              className="login-button"
+              block
+              bsSize="large"
+              disabled={!this.validateForm()}
+              type="submit"
+            >
+              Entrar
+            </Button>
+            {this.state.error && <span className="error-span" > Credenciales no validas </span>}
+              <div class="form-login-footer">
+                <p> Developed by <br />
+                  <a href="https://ines.es/"> INES Ingenieros Consultores </a>
+                </p> <img src={LogoInes} className="logo-ines" alt="logo" />
+              </div>
+          </form>
+        </div>
       </div>
     );
   }
