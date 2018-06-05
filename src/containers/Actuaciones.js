@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Actuaciones.scss";
+import "./App.scss";
 
 export default class Actuaciones extends Component {
     constructor(props) {
