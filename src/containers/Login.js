@@ -53,29 +53,21 @@ export default class Login extends Component {
           }
         }
         sessionStorage.setItem('sessionUserSga', JSON.stringify(sessionObject));
-        this.setState({
-          isAuthenticated: true,
-          error: false
-        });
         console.log('LOGIN OK')
-        alert("Logged in");
+        // alert("Logged in");
+        this.props.userHasAuthenticated(true);
         this.props.history.push("/home");
 
 
       } else {
-        this.setState({
-          isAuthenticated: false,
-          error: true
-        })
+        this.props.userHasAuthenticated(false);
         this.refs.login.value = ""
         this.refs.password.value = ""
       }
     })
       .catch(error => {
-        this.setState({
-          isAuthenticated: false,
-          error: true
-        })
+        this.props.userHasAuthenticated(false);
+
         this.refs.login.value = ""
         this.refs.password.value = ""
       });
@@ -116,11 +108,11 @@ export default class Login extends Component {
               Entrar
             </Button>
             {this.state.error && <span className="error-span" > Credenciales no validas </span>}
-              <div class="form-login-footer">
-                <p> Developed by <br />
-                  <a href="https://ines.es/"> INES Ingenieros Consultores </a>
-                </p> <img src={LogoInes} className="logo-ines" alt="logo" />
-              </div>
+            <div class="form-login-footer">
+              <p> Developed by <br />
+                <a href="https://ines.es/"> INES Ingenieros Consultores </a>
+              </p> <img src={LogoInes} className="logo-ines" alt="logo" />
+            </div>
           </form>
         </div>
       </div>

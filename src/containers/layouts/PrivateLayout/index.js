@@ -24,7 +24,7 @@ class Footer extends Component {
     }
 }
 /* PrivateLayout component definition */
-const PrivateLayout = ({ component: Component, authed, ...rest }) => {
+const PrivateLayout = ({ component: Component, authed, childProps: cProps, ...rest }) => {
     return (
         <Route
             {...rest}
@@ -37,7 +37,7 @@ const PrivateLayout = ({ component: Component, authed, ...rest }) => {
                                 <Header />
                             </header>
                             <main>
-                                <Template> <Component {...props} /> </Template>
+                                <Template> <Component {...props} {...cProps} /> </Template>
                             </main>
                             <footer>
                                 <Footer />
