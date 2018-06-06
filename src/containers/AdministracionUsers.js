@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./App.scss";
 import HeaderAdministracion from './HeaderAdministracion.js'
+import ContentAdminUserList from './ContentAdminUserList.js'
 
 export default class Administracion extends Component {
     constructor(props) {
@@ -18,10 +19,9 @@ export default class Administracion extends Component {
 
     render() {
         return (
-            <div className="Administracion">
+            <div className="AdministracionUser">
                 <HeaderAdministracion />
-                <h1>Administracion</h1>
-
+                <ContentAdminUserList />
             </div>
         );
     }

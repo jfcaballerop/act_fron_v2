@@ -8,6 +8,7 @@ import Template from './containers/Template'
 import Home from './containers/Home'
 import ActuacionesConsOrd from './containers/ActuacionesConsOrd'
 import Administracion from './containers/Administracion'
+import AdministracionUsers from './containers/AdministracionUsers'
 
 // import Home from './components/Home'
 // import AdminUser from './components/AdminUser'
@@ -26,6 +27,11 @@ const AppRoutes = () =>
             <Route path="/home" exact component={Home} />
             <Route path="/actuacionesconsord" exact component={ActuacionesConsOrd} />
             <Route path="/administracion" exact component={Administracion} />
+            <Route path="/administracion/usuarios" exact component={AdministracionUsers} />
+            <Route path="/administracion/grupos" exact component={Administracion} />
+            <Route path="/administracion/roles" exact component={Administracion} />
+            <Route path="/administracion/cecos" exact component={Administracion} />
+            <Route path="/administracion/cebes" exact component={Administracion} />
         </Template>
 
     </Switch>
