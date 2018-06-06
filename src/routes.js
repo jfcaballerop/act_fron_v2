@@ -1,6 +1,10 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
+import { Redirect, Link, BrowserRouter } from 'react-router-dom'
 
+// Layouts containers
+import DefaultLayout from './containers/layouts/DefaultLayout'
+import PrivateLayout from './containers/layouts/PrivateLayout'
 
 // Components
 import Login from './containers/Login'
@@ -19,17 +23,16 @@ import NotFound from "./containers/NotFound";
 
 // const history = createBrowserHistory()
 
-const AppRoutes = () =>
+const AppRoutes = ({ authed }) =>
 
     <Switch>
-        <Route path="/" exact component={Login} />
-        <Template>
-            <Route path="/home" exact component={Home} />
-            <Route path="/actuacionesconsord" exact component={ActuacionesConsOrd} />
-            <Route path="/administracion" exact component={Administracion} />
-            <Route component={NotFound} />
+        <DefaultLayout path="/" exact component={Login} />
+        <PrivateLayout path='/home' exact authed={authed} component={Home} />
+        <PrivateLayout path='/actuacionesconsord' exact authed={authed} component={ActuacionesConsOrd} />
+        <PrivateLayout path='/administracion' exact authed={authed} component={Administracion} />
+        <Route component={NotFound} />
 
-        </Template>
+
 
     </Switch>
 

@@ -30,10 +30,7 @@ class App extends Component {
       userHasAuthenticated: this.userHasAuthenticated
     };
     return (
-      <div className="App">
-        {children}
-        <AppRoutes />
-      </div>
+      <AppRoutes authed={true} />
 
     );
   }
