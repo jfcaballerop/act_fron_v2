@@ -47,7 +47,7 @@ export default class Login extends Component {
         resultado = jwtDecode(response.data.auth_token)
 
         sessionObject = {
-          expiresAt: resultado["exp"],
+          timestamp: new Date().setMilliseconds(60000),
           user: {
             token: response.data.auth_token
           }
@@ -85,6 +85,7 @@ export default class Login extends Component {
                 className="input-login"
                 autoFocus
                 type="login"
+                ref="login"
                 value={this.state.login}
                 onChange={this.handleChange}
               />
@@ -96,6 +97,7 @@ export default class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
                 type="password"
+                ref="password"
               />
             </FormGroup>
             <Button

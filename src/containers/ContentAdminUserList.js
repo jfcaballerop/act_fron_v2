@@ -86,7 +86,7 @@ class ContentAdminUserList extends React.Component {
 								</tr>
 							</thead>
 							<tbody>
-								{
+								{/*
 									this.state.listaContenido.map((row, key) => 
 										<tr key={key}>
 											{
@@ -100,7 +100,7 @@ class ContentAdminUserList extends React.Component {
 											}
 										</tr>
 									)
-								}
+								*/}
 							</tbody>
 						</table> : ""
 					}
