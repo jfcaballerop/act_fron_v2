@@ -15,31 +15,9 @@ class ContentAdminUserList extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState({ listaContenido:
-			[{
-			    "_id": {
-			        "$oid": "5b05827b3781b90001005f05"
-			    },
-			    "login": "admin2",
-			    "name": "admin",
-			    "password_digest": "$2a$10$JKVDqlVmNZ0Qa.f/0RGlDOLZVNBLrf4cToMR8O1EExGb5SjOHVlce",
-			    "role_ids": [
-			        {
-			            "$oid": "5b0582223781b90001005f04"
-			        }
-			    ],
-			    "roles_val": [
-			        {
-			            "_id": {
-			                "$oid": "5b0582223781b90001005f04"
-			            },
-			            "code": "admin"
-			        }
-			    ]
-			}] 
-		})
+		this.getUsersList()
 	}
-/*
+
 	getUsersList = () => {
 		axios.get(ROUTESNAME.showusers(), ROUTESNAME.getSessionToken('sessionUserSga'))
 			.then((response) => {
@@ -49,7 +27,19 @@ class ContentAdminUserList extends React.Component {
 			});
 	}
 
-*/
+	getValue = (item,keychild) => {
+		if(typeof item[keychild] == 'string' || typeof item[keychild] == 'number' ){
+			return item[keychild]
+		}else if (item[keychild].constructor == {}.constructor && keychild == "_id"){
+			return item[keychild].$oid
+		}else if ( item[keychild].constructor == {}.constructor || item[keychild].constructor == [].constructor ){
+			Object.keys(item[keychild]).map((subrow,subkey) => 
+				 this.getValue(item[keychild],subrow)
+			)
+		}
+	}
+
+
 	render() {
 		return (
 			<div className="AdministracionComponentUser">
@@ -80,27 +70,40 @@ class ContentAdminUserList extends React.Component {
 									{
 										Object.keys(this.state.listaContenido[0]).map((row, key) =>
 											<th key={key}>
+
 												{row}
 											</th>)
 									}
 								</tr>
 							</thead>
 							<tbody>
-								{/*
-									this.state.listaContenido.map((row, key) => 
+								{
+									this.state.listaContenido.map((item, key) => 
 										<tr key={key}>
-											{
-												Object.keys(this.state.listaContenido[0]).map((row2, key2) =>
-													<td key={key2}>
+										
+												
+												{
+													Object.keys(item).map((row2, key2) =>{
+
+														return(
 														
-														{Array.isArray(row[row2]) ? row[row2][0]._id: row[row2] }
-													
-													</td>
-												)
-											}
+															<td>
+													{
+														this.getValue(item,row2)
+													}
+															
+															
+															</td>
+															)
+													}
+														
+													)
+												}
+											
+
 										</tr>
 									)
-								*/}
+								}
 							</tbody>
 						</table> : ""
 					}
