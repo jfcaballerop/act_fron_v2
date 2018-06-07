@@ -24,18 +24,18 @@ import NotFound from "./containers/NotFound";
 
 // const history = createBrowserHistory()
 
-const AppRoutes = ({ authed }) =>
+const AppRoutes = ({ authed, childProps }) =>
 
     <Switch>
-        <DefaultLayout path="/" exact component={Login} />
-        <PrivateLayout path='/home' exact authed={authed} component={Home} />
-        <PrivateLayout path='/actuacionesconsord' exact authed={authed} component={ActuacionesConsOrd} />
-        <PrivateLayout path='/administracion' exact authed={authed} component={Administracion} />
-        <PrivateLayout path="/administracion/usuarios" exact authed={authed} component={AdministracionUsers} />
-        <PrivateLayout path="/administracion/grupos" exact authed={authed} component={Administracion} />
-        <PrivateLayout path="/administracion/roles" exact authed={authed} component={Administracion} />
-        <PrivateLayout path="/administracion/cecos" exact authed={authed} component={Administracion} />
-        <PrivateLayout path="/administracion/cebes" exact authed={authed} component={Administracion} />
+        <DefaultLayout path="/" exact component={Login} childProps={childProps} />
+        <PrivateLayout path='/home' exact authed={authed} component={Home} childProps={childProps} />
+        <PrivateLayout path='/actuacionesconsord' exact authed={authed} component={ActuacionesConsOrd} childProps={childProps} />
+        <PrivateLayout path='/administracion' exact authed={authed} component={Administracion} childProps={childProps} />
+        <PrivateLayout path="/administracion/usuarios" exact authed={authed} component={AdministracionUsers} childProps={childProps} />
+        <PrivateLayout path="/administracion/grupos" exact authed={authed} component={Administracion} childProps={childProps} />
+        <PrivateLayout path="/administracion/roles" exact authed={authed} component={Administracion} childProps={childProps} />
+        <PrivateLayout path="/administracion/cecos" exact authed={authed} component={Administracion} childProps={childProps} />
+        <PrivateLayout path="/administracion/cebes" exact authed={authed} component={Administracion} childProps={childProps} />
         <Route component={NotFound} />
     </Switch>
 

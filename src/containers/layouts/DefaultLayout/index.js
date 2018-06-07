@@ -20,7 +20,7 @@ class Footer extends Component {
     }
 }
 
-const DefaultLayout = ({ component: Component, ...rest }) => {
+const DefaultLayout = ({ component: Component, childProps: cProps, ...rest }) => {
     return (
         <Route {...rest} render={matchProps => (
             <div className="DefaultLayout">
@@ -28,7 +28,7 @@ const DefaultLayout = ({ component: Component, ...rest }) => {
                     <Header />
                 </header>
                 <main>
-                    <Component {...matchProps} />
+                    <Component {...matchProps} {...cProps} />
                 </main>
                 <footer>
                     <Footer />

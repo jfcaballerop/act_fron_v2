@@ -30,7 +30,7 @@ class App extends Component {
       userHasAuthenticated: this.userHasAuthenticated
     };
     return (
-      <AppRoutes authed={true} />
+      <AppRoutes authed={this.state.isAuthenticated} childProps={childProps} />
 
     );
   }
