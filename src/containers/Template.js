@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Glyphicon } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Glyphicon, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // Assets
 import "./App.scss";
 import logoMenu from "../assets/images/logo_header.png"
+import { link } from "fs";
 
 export default class Template extends Component {
     constructor(props) {
@@ -14,6 +15,8 @@ export default class Template extends Component {
             showSidenav: false,
             admin_collapse: true,
             actuacion_collapse: true,
+            actModalShow: false
+
         };
     }
     toggleSidenav = () => {
@@ -23,9 +26,15 @@ export default class Template extends Component {
 
     render() {
         const { children } = this.props;
+        let modalClose = () => this.setState({ actModalShow: false });
+        let actModal = [
+            { title: 'Conservacion Ordinaria', link: '/actuacionesconsord' },
+            { title: 'Obras', link: '#' },
+            { title: 'Conservacion Extraordinaria', link: '#' }
+        ];
 
         return (
-            <div className="Template">
+            <div className="Template" >
                 <div className="wrapper">
                     {/* <!-- Sidebar Holder --> */}
                     <nav id="sidebar" className={this.state.showSidenav ? 'active' : null}>
@@ -47,7 +56,8 @@ export default class Template extends Component {
 
                             </li>
                             <li>
-                                <Link to="/actuacionesconsord"><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</Link>
+                                <Link to="#" onClick={() => this.setState({ actModalShow: true })} ><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</Link>
+                                <ActuacionesModal show={this.state.actModalShow} onHide={modalClose} listopts={actModal} />
 
                             </li>
                             <li>
@@ -84,6 +94,39 @@ class ButtonToggle extends Component {
                 </button>
             </div>
 
+        );
+    }
+}
+
+const ListOptions = ({ options, hide }) => (
+    <ul className="list-unstyled components">
+
+        {options.map(opt => (
+            <li>
+                <Link to={opt.link} onClick={hide}>{opt.title}</Link>
+            </li>
+        ))}
+    </ul>
+);
+class ActuacionesModal extends React.Component {
+    render() {
+        return (
+            <Modal
+                {...this.props}
+                bsSize="large"
+                aria-labelledby="contained-modal-title-lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-lg">Elija tipo de actuacion</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ListOptions options={this.props.listopts} hide={this.props.onHide} />
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={this.props.onHide}>cerrar</Button>
+                </Modal.Footer>
+            </Modal>
         );
     }
 }
