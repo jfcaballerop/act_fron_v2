@@ -110,7 +110,7 @@ export default class Login extends Component {
               Entrar
             </Button>
             {this.state.error && <span className="error-span" > Credenciales no validas </span>}
-            <div class="form-login-footer">
+            <div className="form-login-footer">
               <p> Developed by <br />
                 <a href="https://ines.es/"> INES Ingenieros Consultores </a>
               </p> <img src={LogoInes} className="logo-ines" alt="logo" />

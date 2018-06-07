@@ -1,15 +1,16 @@
 // Imports
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import * as authService from '../services/AuthService'
 
 // Assets
-import logo from '../assets/logo.svg';
+// import logo from '../assets/logo.svg';
 import './App.scss';
 
 //Components
 import AppRoutes from '../routes'
-import Login from "./Login";
+// import Login from "./Login";
 
 
 class App extends Component {
@@ -20,9 +21,17 @@ class App extends Component {
       isAuthenticated: false
     };
   }
+  componentWillMount() {
+    console.log(authService.checkTokenExpire())
+    this.userHasAuthenticated(authService.checkTokenExpire());
+
+
+  }
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
+
+
   render() {
     const { children, match, location, history } = this.props;
     const childProps = {
