@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Glyphicon, Modal } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Glyphicon, Modal, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // Assets
 import "./App.scss";
 import logoMenu from "../assets/images/logo_header.png"
-import { link } from "fs";
+
 
 export default class Template extends Component {
     constructor(props) {
@@ -56,7 +56,7 @@ export default class Template extends Component {
 
                             </li>
                             <li>
-                                <Link to="#" onClick={() => this.setState({ actModalShow: true })} ><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</Link>
+                                <NavItem onClick={() => this.setState({ actModalShow: true })} ><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</NavItem>
                                 <ActuacionesModal show={this.state.actModalShow} onHide={modalClose} listopts={actModal} />
 
                             </li>

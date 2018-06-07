@@ -30,8 +30,8 @@ const AppRoutes = ({ authed, childProps }) =>
         <DefaultLayout path="/" exact component={Login} childProps={childProps} />
         <PrivateLayout path='/home' authed={authed} component={Home} childProps={childProps} />
         <PrivateLayout path='/actuacionesconsord' exact authed={authed} component={ActuacionesConsOrd} childProps={childProps} />
-        <PrivateLayout path='/administracion' authed={authed} component={Administracion} childProps={childProps} />
-        <PrivateLayout path="/administracion/usuarios" authed={authed} component={AdministracionUsers} childProps={childProps} />
+        <PrivateLayout path='/administracion' exact authed={authed} component={Administracion} childProps={childProps} />
+        <PrivateLayout path="/administracion/usuarios" exact authed={authed} component={AdministracionUsers} childProps={childProps} />
         <PrivateLayout path="/administracion/grupos" exact authed={authed} component={Administracion} childProps={childProps} />
         <PrivateLayout path="/administracion/roles" exact authed={authed} component={Administracion} childProps={childProps} />
         <PrivateLayout path="/administracion/cecos" exact authed={authed} component={Administracion} childProps={childProps} />
