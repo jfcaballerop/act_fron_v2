@@ -1,4 +1,9 @@
 /***Imports SCSS ****/
+* { padding: 0; margin: 0; }
+html, body, #fullheight {
+    min-height: 100% !important;
+    height: 100%;
+}
 
 @import '../assets/css/variables';
 @import './main';
@@ -9,3 +14,6 @@
 @import './Administracion';
 @import './HeaderAdministracion';
 @import './AdministracionUsers';
+@import './ContentAdminUserList';
+@import './NotFound';
+

@@ -1,6 +1,10 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
+import { Redirect, Link, BrowserRouter } from 'react-router-dom'
 
+// Layouts containers
+import DefaultLayout from './containers/layouts/DefaultLayout'
+import PrivateLayout from './containers/layouts/PrivateLayout'
 
 // Components
 import Login from './containers/Login'
@@ -9,6 +13,7 @@ import Home from './containers/Home'
 import ActuacionesConsOrd from './containers/ActuacionesConsOrd'
 import Administracion from './containers/Administracion'
 import AdministracionUsers from './containers/AdministracionUsers'
+import NotFound from "./containers/NotFound";
 
 // import Home from './components/Home'
 // import AdminUser from './components/AdminUser'
@@ -19,21 +24,19 @@ import AdministracionUsers from './containers/AdministracionUsers'
 
 // const history = createBrowserHistory()
 
-const AppRoutes = () =>
+const AppRoutes = ({ authed }) =>
 
     <Switch>
-        <Route path="/" exact component={Login} />
-        <Template>
-            <Route path="/home" exact component={Home} />
-            <Route path="/actuacionesconsord" exact component={ActuacionesConsOrd} />
-            <Route path="/administracion" exact component={Administracion} />
-            <Route path="/administracion/usuarios" exact component={AdministracionUsers} />
-            <Route path="/administracion/grupos" exact component={Administracion} />
-            <Route path="/administracion/roles" exact component={Administracion} />
-            <Route path="/administracion/cecos" exact component={Administracion} />
-            <Route path="/administracion/cebes" exact component={Administracion} />
-        </Template>
-
+        <DefaultLayout path="/" exact component={Login} />
+        <PrivateLayout path='/home' exact authed={authed} component={Home} />
+        <PrivateLayout path='/actuacionesconsord' exact authed={authed} component={ActuacionesConsOrd} />
+        <PrivateLayout path='/administracion' exact authed={authed} component={Administracion} />
+        <PrivateLayout path="/administracion/usuarios" exact authed={authed} component={AdministracionUsers} />
+        <PrivateLayout path="/administracion/grupos" exact authed={authed} component={Administracion} />
+        <PrivateLayout path="/administracion/roles" exact authed={authed} component={Administracion} />
+        <PrivateLayout path="/administracion/cecos" exact authed={authed} component={Administracion} />
+        <PrivateLayout path="/administracion/cebes" exact authed={authed} component={Administracion} />
+        <Route component={NotFound} />
     </Switch>
 
 export default AppRoutes;
