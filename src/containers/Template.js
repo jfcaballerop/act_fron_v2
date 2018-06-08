@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel, Glyphicon, Modal, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ActuacionesModal from '../components/ListModal'
+import ActuacionesModal from '../components/ListModalReq'
+
+// Services
+
 
 // Assets
 import "./App.scss";
@@ -21,6 +24,9 @@ export default class Template extends Component {
 
         };
     }
+
+
+
     toggleSidenav = () => {
         this.setState({ showSidenav: !this.state.showSidenav });
 
@@ -58,6 +64,7 @@ export default class Template extends Component {
                             <li>
                                 <NavItem onClick={() => this.setState({ actModalShow: true })} ><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</NavItem>
                                 <ActuacionesModal title={'Elija tipo de actuacion'} show={this.state.actModalShow} onHide={modalClose} listopts={this.state.listaAct} />
+
 
                             </li>
                             <li>

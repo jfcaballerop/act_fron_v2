@@ -23,7 +23,17 @@ const ROUTESNAME = {
 	},
 	newuser: function () {
 		return "http://brooklyn-bridge.i3met.com:4000/users"
+	},
+	getActuacionesApiRoutes: function (){
+		return [
+			{
+				label:"actconsord",
+				url:"http://brooklyn-bridge.i3met.com:4000/act_cons_ords"
+			}
+		]
 	}
+
+	
 }
 
 export default ROUTESNAME;
