@@ -23,6 +23,16 @@
         li{
             padding: .5em;
         }
+        .list-group-item {
+            border: none;
+        }
+        button{
+            margin-top: .5em;
+        }
+        .btn-sga{
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
     }
 
 

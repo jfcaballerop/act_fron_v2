@@ -37,7 +37,6 @@ export default class Template extends Component {
 
     render() {
         const { children } = this.props;
-        let modalClose = () => this.setState({ actModalShow: false });
 
         return (
             <div className="Template" >
@@ -63,7 +62,7 @@ export default class Template extends Component {
                             </li>
                             <li>
                                 <NavItem onClick={() => this.setState({ actModalShow: true })} ><i className="glyphicon glyphicon-duplicate"></i>Actuaciones</NavItem>
-                                <ActuacionesModal title={'Elija tipo de actuacion'} show={this.state.actModalShow} onHide={modalClose} listopts={this.state.listaAct} />
+                                <ActuacionesModal title={'Elija tipo de actuacion'} show={this.state.actModalShow} onHide={this.modalClose} listopts={this.state.listaAct} reqHide={this.modalClose} />
 
 
                             </li>

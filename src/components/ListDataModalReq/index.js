@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel, Glyphicon, Modal, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { ListGroupItem, ListGroup, Button, ButtonToolbar, Glyphicon } from "react-bootstrap";
 
 
 import axios from 'axios';
@@ -49,12 +48,21 @@ export default class ListDataModalReq extends Component {
         } else {
             return (
                 <div {...this.props}>
-                    <ul>
+                    <ButtonToolbar>
+                        <Button bsSize="xsmall" bsStyle="success" onClick={this.props.new}><Glyphicon glyph="plus" /> Nueva</Button>
+                        <Button bsSize="xsmall" className="btn-sga" onClick={this.props.list}><Glyphicon glyph="th-list" /> Listado</Button>
+
+                    </ButtonToolbar>
+                    <ListGroup>
+
                         {items.map(item => (
-                            <li key={item._id.$oid}>
-                                {item.code} {item.desc}
-                            </li>
+                            <ListGroupItem key={item._id.$oid} href={"/" + item._id.$oid}>[{item.code}] {item.desc}</ListGroupItem>
+
                         ))}
+
+                    </ListGroup>
+                    <ul>
+
                     </ul>
                 </div>
             );
