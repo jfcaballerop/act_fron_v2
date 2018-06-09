@@ -31,9 +31,7 @@ class ListModalReq extends Component {
 
         };
     }
-    forceUpdateHandler = () => {
-        this.forceUpdate();
-    };
+
     handleButtonClick = (index) => {
 
         // if (this.state.showlist) return;
@@ -49,12 +47,11 @@ class ListModalReq extends Component {
         this.setState({ showlist: !this.state.showlist, in: coll });
 
     }
-    handlerList = (url) => {
-        this.props.history.push(url);
-        this.props.reqHide;
 
+    handleList = (url) => {
+
+        this.props.onHide(url)
     }
-
     render() {
 
         return (
@@ -77,7 +74,7 @@ class ListModalReq extends Component {
                                 <Link onClick={() => this.handleButtonClick(index)} to={'#'} data-toggle="collapse" data-target={'#list' + index}>{opt.title}</Link>
                                 {this.state.showlist ? <ListDataModalReq id={'list' + index}
                                     new={this.handlerNew}
-                                    list={() => this.handlerList(opt.link)}
+                                    list={() => this.handleList(opt.link)}
                                     className={this.state.in[index]}
                                     url={opt.api} /> : null}
                             </li>

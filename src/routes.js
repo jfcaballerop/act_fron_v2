@@ -5,6 +5,7 @@ import { Redirect, Link, BrowserRouter } from 'react-router-dom'
 // Layouts containers
 import DefaultLayout from './containers/layouts/DefaultLayout'
 import PrivateLayout from './containers/layouts/PrivateLayout'
+import { withRouter } from 'react-router-dom'
 
 // Components
 import Login from './containers/Login'
@@ -15,14 +16,7 @@ import Administracion from './containers/Administracion'
 import AdministracionUsers from './containers/AdministracionUsers'
 import NotFound from "./containers/NotFound";
 
-// import Home from './components/Home'
-// import AdminUser from './components/AdminUser'
-// import GenericList from './components/GenericListData'
-// import Page404 from './components/Page404'
-// import createBrowserHistory from 'history/createBrowserHistory'
 
-
-// const history = createBrowserHistory()
 
 const AppRoutes = ({ authed, childProps }) =>
 
