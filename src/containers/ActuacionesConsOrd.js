@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Grid, Row, Col, Table, thead, tr, th, tbody, Glyphicon, Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+// import { css } from 'glamor';
 
 // components
 import Paginacion from '../components/Paginacion'
@@ -23,6 +27,8 @@ export default class ActuacionesConsOrd extends Component {
             error: null,
             isLoaded: false,
             items: []
+
+
         };
     }
     toggleSidenav = () => {
@@ -53,7 +59,39 @@ export default class ActuacionesConsOrd extends Component {
     showNested = (cell, row) => {
         return cell.$oid;
     }
+    afterSaveCell = (row, cellName, cellValue) => {
+        // do your stuff...
+        // console.log(JSON.stringify(row))
+        axios.put(ROUTESNAME.putActConsOrd(row._id.$oid), row, ROUTESNAME.getSessionToken('sessionUserSga'))
+            .then((response) => {
+                if (response.status === 200) {
+                    this.setState((prevState, props) => ({
+                        updatedRow: response.data
+                    }))
+                    toast(cellName + ': ' + cellValue + '. Actualizacion correcta.', {
+                        // position: "top-center",
+                        // autoClose: 60000,
+                        // hideProgressBar: true,
+                        // closeOnClick: true,
+                        // pauseOnHover: true,
+                        // draggable: true,
+                        draggablePercent: 60,
+                        className: 'toast-success',
+                        bodyClassName: 'toast-success',
+                        // progressClassName: css({
+                        //     background: "repeating-radial-gradient(circle at center, red 0, blue, green 30px)"
+                        // })
+                    })
+                } else {
+                    this.setState({
+                        error: response.status
+                    });
+                }
 
+                // console.log('State ListaActuacion2', this.state)
+
+            })
+    }
     render() {
         const { error, isLoaded, items } = this.state;
         const tableOptions = {
@@ -64,6 +102,16 @@ export default class ActuacionesConsOrd extends Component {
             defaultSortName: 'code',
             defaultSortOrder: 'asc'
         };
+        const selectRow = {
+            mode: 'radio',  // single select
+            clickToSelectAndEditCell: true
+
+        };
+        const cellEdit = {
+            afterSaveCell: this.afterSaveCell,
+            blurToSave: true,
+            mode: 'dbclick' // double click cell to edit
+        };
         if (error) {
             return <div {...this.props}>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -71,6 +119,7 @@ export default class ActuacionesConsOrd extends Component {
         } else {
             return (
                 <Grid className="ActuacionesConsOrd">
+
                     <Row className="show-grid">
                         <Col xs={12} md={12}>
                             <h1>Actuaciones de Conservacion Ordinaria</h1>
@@ -94,15 +143,30 @@ export default class ActuacionesConsOrd extends Component {
                     <br />
                     <Row className="show-grid">
                         <Col xs={12} md={12}>
+                            <ToastContainer
+                                position="top-right"
+                                autoClose={5000}
+                                hideProgressBar
+                                newestOnTop
+                                closeOnClick
+                                rtl={false}
+                                pauseOnVisibilityChange
+                                draggable
+                                pauseOnHover
+                            />
+
                             <BootstrapTable
                                 data={items}
                                 options={tableOptions}
                                 exportCSV csvFileName='actuaciones-list'
                                 pagination
                                 columnFilter
-                                search multiColumnSearch
-                                searchPlaceholder='Codigo o Descripcion...'
-                                multiColumnSort={2}>
+                                search multiColumnSearch searchPlaceholder='Codigo o Descripcion...'
+                                multiColumnSort={2}
+                                striped
+                                hover
+                                selectRow={selectRow}
+                                cellEdit={cellEdit} >
                                 <TableHeaderColumn dataField='_id' dataFormat={this.showNested} isKey={true}>Act ID</TableHeaderColumn>
                                 <TableHeaderColumn dataField='code' dataSort={true}>Code</TableHeaderColumn>
                                 <TableHeaderColumn dataField='desc'>Desc</TableHeaderColumn>

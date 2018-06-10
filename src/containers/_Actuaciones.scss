@@ -1,16 +1,16 @@
-.ActuacionesConsOrd{
+.ActuacionesConsOrd {
     color: $primary-color;
-    background-color:$primary-color-background;
+    background-color: $primary-color-background;
     height: 100%;
     width: 100%;
-    button{
-        color: $primary-color-text;
-        background-color: $primary-color;
-        border-color: $primary-color;
-
+    button {
+        &.react-bs-table-csv-btn {
+            color: $primary-color-text;
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
     }
-    .table{
+    .table {
         color: $secondary-color;
     }
-
 }

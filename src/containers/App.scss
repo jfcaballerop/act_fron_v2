@@ -1,6 +1,13 @@
 /***Imports SCSS ****/
-* { padding: 0; margin: 0; }
-html, body, #fullheight {
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body,
+#fullheight {
     min-height: 100% !important;
     height: 100%;
 }
@@ -18,4 +25,4 @@ html, body, #fullheight {
 @import './NotFound';
 @import './ListModal';
 @import './Pagination';
-
+@import './Global';

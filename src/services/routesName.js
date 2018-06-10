@@ -14,6 +14,9 @@ const ROUTESNAME = {
 	delActConsOrd: function (id) {
 		return "http://brooklyn-bridge.i3met.com:4000/act_cons_ords/" + id
 	},
+	putActConsOrd: function (id) {
+		return "http://brooklyn-bridge.i3met.com:4000/act_cons_ords/" + id
+	},
 	getSessionToken: function (sessionName) {
 		return {
 			headers: {
@@ -24,16 +27,16 @@ const ROUTESNAME = {
 	newuser: function () {
 		return "http://brooklyn-bridge.i3met.com:4000/users"
 	},
-	getActuacionesApiRoutes: function (){
+	getActuacionesApiRoutes: function () {
 		return [
 			{
-				label:"actconsord",
-				url:"http://brooklyn-bridge.i3met.com:4000/act_cons_ords"
+				label: "actconsord",
+				url: "http://brooklyn-bridge.i3met.com:4000/act_cons_ords"
 			}
 		]
 	}
 
-	
+
 }
 
 export default ROUTESNAME;
