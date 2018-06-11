@@ -3,6 +3,8 @@ import { Button, Glyphicon, FormGroup, ControlLabel, FormControl } from "react-b
 import axios from 'axios';
 import ROUTESNAME from '../services/routesName.js';
 import './App.scss';
+import Pagination from "react-js-pagination";
+
 
 class ContentAdminUserList extends React.Component {
 
@@ -10,7 +12,8 @@ class ContentAdminUserList extends React.Component {
 		super(props);
 		this.state = {
 			listaContenido: "" ,
-			pagina: 1
+			pagina: 1,
+			itemsperpage:16
 		}
 	}
 
@@ -33,12 +36,34 @@ class ContentAdminUserList extends React.Component {
 		}else if (item[keychild].constructor == {}.constructor && keychild == "_id"){
 			return item[keychild].$oid
 		}else if ( item[keychild].constructor == {}.constructor || item[keychild].constructor == [].constructor ){
-			Object.keys(item[keychild]).map((subrow,subkey) => 
-				 this.getValue(item[keychild],subrow)
+			return Object.keys(item[keychild]).map((subrow,subkey) =>
+				this.getValue(item[keychild],subrow)
 			)
 		}
 	}
 
+	paginacion = () => {
+		let active = this.state.pagina;
+		let paginas = (this.state.listaContenido.length % 8 == 0 ?  (this.state.listaContenido.length / 8) :  (this.state.listaContenido.length / 8) + 1)
+		let items = [];
+		for (let number = 1; number <= paginas; number++) {
+		  items.push(
+		    <Pagination.Item onSelect={(page) => this.changePage(page)} active={number === active}>{number}</Pagination.Item>
+		  );
+		}
+
+		return (<Pagination
+          activePage={this.state.pagina}
+          itemsCountPerPage={this.state.itemsperpage}
+          totalItemsCount={this.state.listaContenido.length}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange}
+        />)
+	}
+
+	  handlePageChange = pageNumber =>  {
+	    this.setState({pagina: pageNumber});
+	  }
 
 	render() {
 		return (
@@ -78,7 +103,7 @@ class ContentAdminUserList extends React.Component {
 							</thead>
 							<tbody>
 								{
-									this.state.listaContenido.map((item, key) => 
+									this.state.listaContenido.slice((this.state.pagina * this.state.itemsperpage) - this.state.itemsperpage, (this.state.pagina * this.state.itemsperpage)).map((item, key) => 
 										<tr key={key}>
 										
 												
@@ -108,8 +133,8 @@ class ContentAdminUserList extends React.Component {
 						</table> : ""
 					}
 					</section>
-					<footer>
-						paginacion
+					<footer className="footer-pagination">
+						{this.paginacion()}
 					</footer>
 				</div>
 			</div>
