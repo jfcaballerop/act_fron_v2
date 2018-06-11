@@ -7,6 +7,7 @@ import * as authService from '../services/AuthService'
 // Assets
 // import logo from '../assets/logo.svg';
 import './App.scss';
+import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 //Components
 import AppRoutes from '../routes'

@@ -1,0 +1,34 @@
+.active {
+    &.page-item {
+        .page-link {
+            background-color: $primary-color;
+            color: $primary-color-text;
+            border-color: $primary-color;
+            &:hover {
+                background-color: $secondary-color;
+                color: $primary-color-text;
+                border-color: $secondary-color;
+            }
+        }
+    }
+}
+
+.page-item {
+    .page-link {
+        color: $secondary-color-text;
+        &:hover {
+            background-color: $secondary-color;
+            color: $primary-color-text;
+            border-color: $secondary-color;
+        }
+    }
+}
+
+.toast-success {
+    background: $success !important;
+    border-color: $success !important;
+    color: $primary-color-text !important;
+    font-size: 1em !important;
+    font-weight: bold !important;
+    background-color: inherit;
+}

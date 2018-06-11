@@ -1,0 +1,39 @@
+.listmodal{
+    button{
+        color: $primary-color-text;
+
+    }
+    .modal-footer{
+        button{
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+
+    }
+    .modal-header{
+        color: $primary-color-text;
+        background-color: $secondary-color;
+        .close{
+            opacity: 1;
+        }    
+
+
+    }
+    .modal-body{
+        li{
+            padding: .5em;
+        }
+        .list-group-item {
+            border: none;
+        }
+        button{
+            margin-top: .5em;
+        }
+        .btn-sga{
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+
+
+}
